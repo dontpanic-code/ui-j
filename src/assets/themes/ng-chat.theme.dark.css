@@ -1,0 +1,53 @@
+#ng-chat.custom-theme {
+    color: #5c5c5c;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#ng-chat.custom-theme .primary-background {
+    background-color: #fff;
+}
+#ng-chat.custom-theme .secondary-background {
+    background-color: #fafafa;
+}
+#ng-chat.custom-theme .primary-outline-color {
+    border-color: #a3a3a3;
+}
+#ng-chat.custom-theme .primary-text {
+    color: #5c5c5c;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#ng-chat.custom-theme .friends-search-bar {
+    background-color: rgb(233, 233, 233);
+}
+#ng-chat.custom-theme .unread-messages-counter-container, #ng-chat.custom-theme .ng-chat-people-action, #ng-chat.custom-theme .ng-chat-people-action > i {
+    color: #5c5c5c;
+    background-color: #e3e3e3;
+}
+#ng-chat.custom-theme .load-history-action {
+    background-color: #e3e3e3;
+}
+#ng-chat.custom-theme .chat-window-input {
+    background-color: rgb(233, 233, 233);
+}
+#ng-chat.custom-theme .sent-chat-message-container, #ng-chat.custom-theme .file-message-container {
+    background-color: #e3e3e3;
+    border-color: #e3e3e3;
+}
+#ng-chat.custom-theme .received-chat-message-container, #ng-chat.custom-theme .file-message-container.received {
+    background-color: #fff;
+    border-color: #e3e3e3;
+}
+
+
+
+#ng-chat.custom-theme .primary-outline-color {
+    border-width: 0px;
+    border-radius: 0.8rem 0.8rem 0 0;
+}
+#ng-chat.custom-theme .secondary-background{
+    background-color: #039be5;
+    color: #fff;
+    border-radius: 0.8rem 0.8rem 0 0;
+}
+#ng-chat .shadowed{
+    box-shadow: none;
+}

@@ -1,0 +1,47 @@
+<div class="page-layout carded">
+    <div class="center">
+        <div class="page-container mat-elevation-z6">
+            <div class="table-myjobs" style="z-index: 1 !important;">
+                <div  *ngFor="let job of jobsArray" class="flex">
+                    <mat-accordion class="headers-align">
+                        <mat-expansion-panel hideToggle>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    {{job.jobTitle}}                                
+                                </mat-panel-title>
+                                <mat-panel-description>
+                                    {{job.companyName}}, ({{job.tags}}), {{job.dateCreated}}
+                                    <mat-icon *ngIf="!job.isApproved" class="gray">assignment_late</mat-icon>
+                                    <mat-icon *ngIf="job.isApproved" class="green">assignment_turned_in</mat-icon>                                    
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <mat-card class="example-card">                            
+                                <mat-card-subtitle><mat-icon> info</mat-icon> {{job.aboutProject}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> file_copy</mat-icon> {{'newJob.interview' | translate}}: {{job.stagesInterview}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> language</mat-icon> {{'eng_level' | translate}}: {{job.englishLevel}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> attach_money</mat-icon> {{job.salaryRange}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> laptop_mac</mat-icon> {{job.workplaceType}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> how_to_reg</mat-icon> {{job.employmentType}}</mat-card-subtitle>
+                                
+                                <mat-card-content>
+                                  <p><b>{{'jobList.table.requirements' | translate}}:</b><br>{{job.jobRequirements}}</p>
+                                  <p><b>{{'jobList.table.what' | translate}}</b><br>{{job.stack}}</p>
+                                  <p><b>{{'jobList.table.benefits' | translate}}:</b><br>{{job.benefits}}</p>
+                                </mat-card-content>
+                                <mat-card-subtitle><mat-icon> contact_mail</mat-icon> <b> {{'jobList.table.contact' | translate}}:</b> {{job.contactType}}: <a target="_blank" href="{{job.contactLink+job.contacts}}" target="_blank">{{job.contacts}}</a></mat-card-subtitle>
+                                <mat-card-actions class="text-right">
+                                    <button class="mr-16 blue-btn" mat-flat-button *ngIf="!job.isApproved" (click)="changeApproved(job.id)">{{'profile.moderator.approve' | translate}}</button>
+                                    <button class="mr-16 yellow-btn" mat-flat-button *ngIf="job.isApproved" (click)="changeApproved(job.id)">{{'profile.moderator.disapprove' | translate}}</button>
+                                    <button class="mr-16 blue-btn" mat-raised-button (click)="editJob(job.id)">{{'edit' | translate}}</button> 
+                                    <button class="yellow-btn" mat-raised-button (click)="deleteJob(job.id)">{{'delete' | translate}}</button>
+                                </mat-card-actions>
+                            </mat-card>                            
+                        </mat-expansion-panel>                        
+                    </mat-accordion>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,29 @@
+.ukraine-msg{
+    background-color: #ECFAFF !important;
+    .btns{
+        display: flex;
+        justify-content: center;
+        column-gap: 30px;
+        margin-top: 30px;
+
+        .lang{
+            display: block;            
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+
+            &:first-child{
+                background: linear-gradient(243.18deg, #EBFF00 -74.37%, rgba(235, 255, 0, 0) 115.11%);
+            }
+            &:last-child{
+                background: linear-gradient(251.96deg, #039BE5 -79.07%, rgba(3, 155, 229, 0) 115.56%);
+            }
+        }
+    }
+    
+    @media only screen and (max-width: 960px){
+        h2{
+            font-size: 20px !important;
+            font-weight: 600;
+        }
+    }    
+}

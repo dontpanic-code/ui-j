@@ -1,0 +1,32 @@
+.jobs-list{
+    padding: 5px 5px 20px;
+    overflow-y: scroll;
+}
+.example-card {
+    display: block;
+    position: relative;
+    max-width: 95%;
+    margin: 10px auto;
+    white-space:pre-wrap;
+    z-index: 0;
+    margin-bottom: 20px;
+    white-space: pre-line;
+    background: transparent !important;
+    mat-card-title:hover span{
+        text-decoration: solid underline #039be5;
+        cursor: pointer;
+    }
+}
+@media only screen and (max-width: 960px)
+{
+    .sticky-pagination {
+        width: 100%;
+        position: relative;
+        bottom: 25px;
+    }
+}
+mat-icon{
+    display: inline;
+    font-size: 15px;
+    vertical-align: middle !important;
+}

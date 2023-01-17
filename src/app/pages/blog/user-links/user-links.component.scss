@@ -1,0 +1,29 @@
+.links{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px 15px;
+    gap: 20px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    mat-list-item{
+        &:hover{
+            cursor: pointer;
+            color: #56BFD9 !important;
+        }
+    }
+
+    mat-icon{
+        margin-right: 20px;
+    }
+}
+
+.highlight {
+    color: #56BFD9 !important;
+    font-weight: 600;
+    // background-color: yellow;
+    img{
+        filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+    }
+}

@@ -1,0 +1,84 @@
+@import "src/@fuse/scss/fuse";
+.page-container {
+    max-width: 800px;
+}
+.my-account-container {
+    @media only screen and (max-width: 960px) {
+        display: block;
+    }
+}
+.left {
+    padding: 16px;
+    @media only screen and (max-width: 960px) {
+        height: auto !important;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+.right {
+    padding: 20px;
+    @media only screen and (min-width: 960px) {
+        overflow-y: scroll;
+    }
+    @media only screen and (max-width: 960px) {
+        height: auto !important;
+        display: block !important;
+    }
+}
+.avatar-container {
+    position: relative;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 50%;
+}
+.login-container {
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+}
+.login-button {
+    transition: all 0.3s ease;
+    max-width: 240px;
+    margin-bottom: 15px !important;
+    border-radius: 11px !important;
+    font-weight: 400 !important;
+    &:hover {
+        opacity: .85;
+    }
+    &.google,
+    &.facebook,
+    &.linkedin {
+        width: 100%;
+        text-transform: none;
+        color: #FFFFFF;
+        font-size: 13px;
+        @include media-breakpoint('xs') {
+            width: 60%;
+        }
+        mat-icon {
+            color: #FFFFFF;
+            margin: 0 8px 0 0;
+        }
+    }
+    &.google {
+        background-color: #D73D32;
+        margin-bottom: 8px;
+    }
+    &.facebook {
+        background-color: rgb(63, 92, 154);
+    }
+    &.linkedin {
+        background-color: #0a66c2;
+    }
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+    margin-bottom: 15px !important;
+  }
+
+.myaccount-btn{
+    width: 180px !important;
+}

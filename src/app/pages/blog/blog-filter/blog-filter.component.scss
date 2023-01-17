@@ -1,0 +1,92 @@
+.about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 7px 5px;
+    gap: 20px;
+    
+    // position: absolute;
+    // max-width: 305px;
+    // height: 449px;
+    // left: 80px;
+    // top: 107px;
+    margin-bottom: 20px;
+    
+    background: #FFFFFF;
+    border-radius: 10px;
+    &__logo{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        
+        img{
+            width: 50px;
+        }
+        h3{
+            border-left: 2px solid #000000;
+            padding-left: 20px;
+            font-weight: 500;
+        }
+    }
+}
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0px 30px 20px;
+    gap: 30px;
+
+    // position: absolute;
+    // width: 305px;
+    // height: 551px;
+    // left: 80px;
+    // top: 350px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    h4{
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 15px;
+        isolation: isolate;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        list-style: none;
+        li{
+            font-size: 16px;
+            display: inline-flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            column-gap: 16px;
+
+            &:hover{
+                img{
+                    filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+                }
+                cursor: pointer;
+                color: #56BFD9;
+            }
+        }
+    }
+}
+
+.highlight {
+    color: #56BFD9;
+    font-weight: 600;
+    // background-color: yellow;
+    img{
+        filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+    }
+}

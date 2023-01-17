@@ -1,0 +1,198 @@
+{ 
+    "recruiter": "I am recruiter", 
+    "job_seeker": "I am job seeker",
+    "search": "Search",
+    "country": "Country",
+    "city": "City",
+    "eng_writing": "English Writing Level",
+    "eng_speaking": "English Speaking Level",
+    "eng_level": "English Level",
+    "find": "Find",
+    "reset_filter": "Reset filter",
+    "messages": "Messages",
+    "send_message": "Send Message",
+    "donate_rozrobnyk": "Donate Juniverse",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "education": "Education",
+    "education_tech": "Tech Education",
+    "nonTechEdu": "Any Education",
+    "courses": "After Courses",
+    "donate": "Donate",
+    "forum": "Forum",
+    "message_warning": "Log in to write to users",
+    "menu":{
+        "hire_list": "Hire List",
+        "jobs": "Jobs",
+        "about": "Team",
+        "login": "Log in",
+        "settings": "Profile settings",
+        "logout": "Log out",
+        "new_job": "New Job",
+        "my_jobs": "My Jobs"
+    },
+    "main": {        
+        "title": "This is a place where",
+        "item1": "developers post CVs",
+        "item2": "recruiters publish vacancies",
+        "item3": "employers reinforce their teams",
+        "title1": "In dialog",
+        "title2": "with",
+        "title3": "juniors",
+        "desc": "Це місце, де є: джоб-борд junior вакансій від 0 до 18 міс досвіду; база перевірених junior кандидатів; пет-проекти для джунів; форум."
+    }, 
+    "login":{
+        "title": "Log in first!",
+        "google": "Log in with Google",
+        "linkedin": "Log in with LinkedIn",
+        "privacy_policy": "By creating an account, you agree to the",
+        "privacy_policy_link": "Privacy Policy"
+    },      
+    "footer": {
+        "part1": "If you have any problems, questions, comments, suggestions",
+        "link": "let us know",
+        "part2": "Please be respectful to each other!",
+        "help1": "We'll be grateful",
+        "help2": "for your support",
+        "help3": "of the Foundation",
+        "help4": "“Come Back Alive”"
+    },
+    "welcome":{
+        "title": "Welcome!",
+        "seeker":{
+            "item1_part1": "Find",
+            "item1_part2": "of your interest",
+            "item2": "Communicate with recruiters directly through the Juniverse website",
+            "item3": "Be anonymous if you wish",
+            "item4": "Hide your profile from specific companies if you want",
+            "link": "vacancies"
+        },
+        "recruiter":{
+            "item1_part1": "Use convenient and detailed",
+            "item1_part2": "of Job Seekers",
+            "item2": "Communicate with Job Seekers directly through the site with notification will also come to your email",
+            "link": "filtering"
+        }
+    },
+    "hireList":{
+        "filter":{
+            "experience": "Experience",
+            "experienceMonth": "months",
+            "teamLeads": "Team Leads only",
+            "leads": "Leads",
+            "relocation": "Open to relocation only",
+            "relocationM": "Relocation"
+        },
+        "table":{
+            "lead": "Lead",
+            "position": "Position",
+            "experience": "Experience",
+            "engWriting": "English\nWriting",
+            "engSpeaking": "English\nSpeaking",
+            "relocate": "Relocate",
+            "remote": "Remote",
+            "cv": "Open CV",
+            "open_linkedin": "Open linkedin profile",
+            "contact": "Contact info",
+            "click_copy": "click to copy",
+            "copy_done": "Contact info is on your clipboard!"
+            
+        }
+    },
+    "jobList": {
+        "filter":{
+            "search_jobText": "Keywords",
+            "stack_search": "Stack Search",
+            "workplace": "Workplace type",
+            "employment": "Employment type"
+        },
+        "table":{
+            "read": "Read",
+            "more": "more",
+            "less": "less",
+            "requirements": "Requirements",
+            "what": "What to do?",
+            "benefits": "Benefits",
+            "contact": "Contact"
+        }
+    },
+    "about":{
+        "title": "About Juniverse",
+        "p1_1": "Juniverse is an international project carefully crafted by the",
+        "p1_2": " team. We believe in the power of networking that’s why we created a platform where developers and recruiters from all over the world are gathered under one virtual roof.",
+        "pi_link": "Don't Panic Recruiting Agency",
+        "p2":"The website itself looks like a table, simple and easy to use. Candidates post CVs, recruiters publish vacancies, and business owners reinforce their teams.",
+        "p3" : "Our mission is not only to help professionals find each other but also give you a tiny taste of our country’s culture. “Rozrobnyk” means developer in Ukrainian, the language of free, brave and creative people.",
+        "contact_title": "Contact information",
+        "sub_title": "Please feel free to <b>contact us</b> for partnership and business proposals.",
+        "name1": "Roman Kushnaryov",
+        "name2": "Eugene Haiduchenko",
+        "footer": "Founders of the Juniverse platform"
+    },
+    "profile":{
+        "edit": "Edit Profile",
+        "remove": "Remove Me",
+        "job_list": "My Job list",  
+        "logout": "Logout",      
+        "moderator": {
+            "link": "Moderator Page",
+            "approve": "Approve",
+            "disapprove": "Disapprove"
+        },
+        "create":{
+            "title": "My profile in Hire List",
+            "anonymous": "I want to be anonymous",
+            "experience":"My experience",
+            "p_description": "Position description",
+            "linkedin": "Linkedin link",
+            "url": "URL must start with https://",
+            "cv": "CV link or other contact link",
+            "hide_me": "Hide me from these companies:",
+            "selected_com": "Selected Companies",
+            "company_name": "Company name",
+            "team_lead": "Team Lead",
+            "relocate": "I'm considering moving to another city / country",
+            "remote": "Ready to remote work",
+            "education": "I've a technical education",
+            "courses": "After Courses"
+        },
+        "recruiter":{
+            "title": "My profile",
+            "Company": "Company"
+        }
+    },
+    "my_jobs": {
+        "btn": "Add New Job",
+        "empty": "You have no jobs yet!"
+    },
+    "newJob":{
+        "title": "New Job",
+        "title_edit": "Edit Job",
+        "job_title": "Job Title",
+        "about": "About project",
+        "interview": "Stages of the Job Interview",
+        "salary": "Salary Range (per month), $",
+        "what": "(technical stack, the role, responsibilities, etc.)",
+        "contact": "Select Contact",
+        "tag": "Select Tag",
+        "my_job": "Go to My Job list",
+        "job_list": "Go to Job list",
+        "result_example": "result example",
+        "new_stack": "New stack...",
+        "experience": "Experience (min)" 
+    },
+    "forums":{
+        "empty": "No entries yet!",
+        "replys": "Replies",
+        "views": "Views",
+        "own": "Your topics",
+        "add": "Add topic",
+        "new": "New topic", 
+        "my_topics": "To my topics",
+        "title": "Title", 
+        "tags": "Tags (via comma)",
+        "save": "Save",
+        "likes": "Likes"
+    }
+}

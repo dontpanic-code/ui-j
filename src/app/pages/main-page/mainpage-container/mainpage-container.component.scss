@@ -1,0 +1,125 @@
+.main-page{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: stretch ;
+    min-width: 100% !important;
+    .main-title{
+        font-family: 'Mulish';
+        font-size: 96px !important;
+        
+        span:nth-of-type(1){
+            font-weight: 500 !important;
+        }
+        span:nth-of-type(2){
+            font-weight: 300 !important;
+            font-style: italic;
+        }
+        span:nth-of-type(3){
+            font-weight: 700 !important;
+        }
+
+        @media only screen and (max-width: 960px){
+            font-size: 45px !important;
+            padding-top: 50px;
+        }
+    }
+    .main__text{
+        max-width: 830px;
+        font-size: 24px;
+        margin-top: 30px;
+        @media only screen and (max-width: 960px){
+            font-size: 18px;
+            padding: 0 20px;
+        }
+    }
+    .buttons{
+        margin-top: 30px;
+        column-gap: 60px;
+        margin-bottom: 20px;
+
+        .btn{
+            font-size: 20px;
+            min-width: 190px;
+            border-radius: 10px;
+            transition: all 0.4s;
+
+            &.btn-warning{
+                background: #FFC56F;
+                border: none;
+                &:hover{
+                    color: #fff;
+                    background: #ffa807;
+                    
+                }
+            }
+            &.btn-primary{
+                background: #36CBF0;
+                color: #000;
+                border: none;
+                &:hover{
+                    color: #fff;
+                    background: #007bff;
+                    
+                }
+            }
+            
+        }
+        @media only screen and (max-width: 500px){
+           flex-flow: column !important;
+           row-gap: 20px;
+           margin-bottom: 50px;
+        }
+    }
+    
+    
+
+
+
+    .headers{
+        margin-bottom: 55px;
+        h2{
+            // line-height: 20px;
+
+            @media only screen and (max-width: 960px){
+                // font-size: 16px !important;
+                // line-height: 20px;
+            }
+        }    
+    }
+    .btns__maon-page{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        width: 50% !important;
+        margin: 0 auto;
+
+        @media only screen and (max-width: 960px){
+            flex-flow: column wrap;
+        }
+
+        // .btn-donate__main-page{
+        //     display: inline-block;
+        //     color: #000;
+        //     font-size: 16px;
+        //     background: #CCEBF2;
+        //     border: 1px solid #CCEBF2;
+        //     box-sizing: border-box;
+        //     box-shadow: 0px 16px 40px rgba(109, 141, 173, 0.25);
+        //     border-radius: 7px;
+        //     padding: 15px 40px;
+        //     transition: all 0.4s ease-in-out;
+        //     cursor: pointer;
+        //     &:hover{
+        //         text-decoration: none !important;
+        //         background: #039ae582 !important;
+        //     }
+        //     @media only screen and (max-width: 960px){
+        //         padding: 10px 5px;
+        //         &:first-child{
+        //             margin-bottom: 30px;
+        //         }
+        //     }
+        // }
+
+    }    
+}

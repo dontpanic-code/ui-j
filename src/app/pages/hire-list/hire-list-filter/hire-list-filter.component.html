@@ -1,0 +1,96 @@
+<form [formGroup]="form" class="filter-container">
+    <mat-form-field class="example-full-width small-input" appearance="outline" *ngIf="showFullInfo"
+    >
+        <mat-label>Person ID</mat-label>
+        <input matInput formControlName="id" type="number">
+    </mat-form-field>
+
+    <app-search (search)="onSearch($event)" #searchText placeholder="{{'search' | translate}}"></app-search>
+    <div class="position-container" formArrayName="positions"
+    >        
+        <mat-checkbox *ngFor="let control of getPositionsControls(); let i = index"
+                      [formControlName]="i">
+            {{positionsNames[i]}}
+        </mat-checkbox>
+    </div>
+    <h5 class="experience-title">{{'hireList.filter.experience' | translate}}:
+        {{ form.value.experienceInYears[0] }} - {{ form.value.experienceInYears[1] }} {{'hireList.filter.experienceMonth' | translate}}
+    </h5>
+    <div class="custom-slider">
+        <ngx-slider
+    [(value)]="value"
+    [(highValue)]="highValue"
+    [options]="options"
+    formControlName="experienceInYears"
+    ></ngx-slider>
+    </div>
+    <!-- devorld Country and City autocomplete -->
+    <mat-form-field appearance="outline" class="small-input">
+        <mat-label>{{'country' | translate}}</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="country"
+               matInput
+               formControlName="country"
+               [matAutocomplete]="autoCountry" >
+        <mat-autocomplete #autoCountry="matAutocomplete" (optionSelected)="getCities($event.option.value)">
+          <mat-option *ngFor="let country of filteredCountries | async" [value]="country.name">
+              {{country.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="small-input">
+        <mat-label>{{'city' | translate}}</mat-label>
+        <input type="text"
+               placeholder="Pick one"
+               aria-label="city"
+               formControlName="city"
+               matInput
+               [matAutocomplete]="autoCity" >
+        <mat-autocomplete #autoCity="matAutocomplete">
+          <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+              {{city.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <!-- end devorld Country and City autocomplete -->
+    <mat-form-field appearance="outline" class="small-input">
+        <mat-label>{{'eng_level' | translate}}</mat-label>
+        <mat-select formControlName="englishLevel" multiple>
+            <mat-option
+                *ngFor="let level of hireService.enumKeys(englishLevels)"
+                [value]="+level">
+                {{ englishLevels[level] }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div>
+        <h5>{{'education' | translate}}:
+            <ng-toggle  
+            formControlName="education"
+            [(value)]="config.value"
+            [width]="config.width"
+            [fontSize]="config.fontSize"
+            [color]="config.color"
+            [(labels)]="config.labels"
+            [fontColor]="config.fontColor"
+            ></ng-toggle>
+    </h5>
+        
+    </div>
+    <div class="mt-5">
+        <section class="example-section" [formGroup]="form">
+            <mat-checkbox formControlName="courses">{{'courses' | translate}}</mat-checkbox>
+          </section>
+    </div>
+    
+    
+    <button [disabled]="disableReset" class="filter-btn mt-12" color="accent" mat-raised-button>
+        {{'find' | translate}}
+    </button>
+    <button (click)="reset()" [disabled]="disableReset" class="reset-btn mt-12" color="accent" mat-raised-button>
+        {{'reset_filter' | translate}}
+    </button>
+    <br>
+</form>

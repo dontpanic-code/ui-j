@@ -1,0 +1,11 @@
+<div class="links" *ngIf="isAuthenticated">
+    <mat-list>
+        <mat-list-item (click)="openMy('my')" [class.highlight] = "isMy">
+            <mat-icon>description</mat-icon> My Articles
+        </mat-list-item>
+        <mat-list-item (click)="open('bookmarks')" [class.highlight] = "isBookmark">
+            <mat-icon>bookmark</mat-icon> 
+             Bookmarks
+        </mat-list-item>
+       </mat-list>
+</div>

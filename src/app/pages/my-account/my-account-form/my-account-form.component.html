@@ -1,0 +1,198 @@
+<ng-container *ngIf="formIsReady">
+    <div class="h1 pb-20 text-center">{{'profile.create.title' | translate}}</div>
+    <form [formGroup]="form">
+        <div fxLayout="row wrap" fxLayoutAlign="space-between">
+            <div class="toggles" fxFlex="100%">
+                <div class="mb-12">
+                    <mat-slide-toggle formControlName="isAnonymous" (change)="toggleIsAnonymous($event)">{{'profile.create.anonymous' | translate}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
+
+             <!-- devorld Position autocomplete -->
+             <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                <mat-label>{{'hireList.table.position' | translate}}</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="position"                                             
+                       matInput
+                       [matAutocomplete]="position"
+                       formControlName="position" 
+                       required>
+                <mat-autocomplete #position="matAutocomplete">
+                  <mat-option *ngFor="let position of filteredOptions | async" [value]="position">
+                    {{position}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="100%"
+                            *ngIf="form.value.position === 'Other'">
+                <mat-label>{{'profile.create.p_description' | translate}}</mat-label>
+                <textarea matInput></textarea>
+            </mat-form-field>
+            <!--end devorld Position autocomplete -->
+            
+            <!-- devorld old version -->
+            <!-- <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                <mat-label>Position</mat-label>
+                <mat-select formControlName="position" required>
+                    <mat-option
+                        *ngFor="let position of hireService.enumKeys(positionsList)"
+                        [value]="positionsList[position]">
+                        {{ positionsList[position] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <!-- end devorld old version -->
+
+            <!-- devorld Country and City autocomplete -->
+            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                <mat-label>{{'country' | translate}}</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="country"
+                       matInput
+                       formControlName="country"
+                       [matAutocomplete]="autoCountry"
+                       required>
+                <mat-autocomplete #autoCountry="matAutocomplete" (optionSelected)="getCities($event.option.value)">
+                  <mat-option *ngFor="let country of filteredCountries | async" [value]="country.name">
+                      {{country.name}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                <mat-label>{{'city' | translate}}</mat-label>
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="city"
+                       formControlName="city"
+                       matInput
+                       [matAutocomplete]="autoCity"
+                       required>
+                <mat-autocomplete #autoCity="matAutocomplete">
+                  <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+                      {{city.name}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+              <!-- end devorld Country and City autocomplete -->
+
+            <!-- devorld old version-->
+            <!-- <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                <mat-label>Location</mat-label>
+                <mat-select formControlName="currentLocation" required>
+                    <mat-option
+                        *ngFor="let location of hireService.enumKeys(locations)"
+                        [value]="locations[location] ">
+                        {{ locations[location] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <!-- end devorld old version-->            
+            <mat-form-field appearance="outline" class="small-input" fxFlex="100%" fxFlex.sm="48%">
+                <mat-label>{{'eng_level' | translate}}</mat-label>
+                <mat-select formControlName="englishLevel" required>
+                    <mat-option
+                        *ngFor="let level of hireService.enumKeys(englishLevels)"
+                        [value]="level">
+                        {{ englishLevels[level] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- <mat-form-field appearance="outline" class="small-input" fxFlex="100%" fxFlex.sm="48%">
+                <mat-label>{{'eng_speaking' | translate}}</mat-label>
+                <mat-select formControlName="englishSpeaking" required>
+                    <mat-option
+                        *ngFor="let level of hireService.enumKeys(englishLevels)"
+                        [value]="level">
+                        {{ englishLevels[level] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <mat-form-field appearance="outline" class="small-input" fxFlex="100%" fxFlex.sm="48%">
+                <mat-label>{{'profile.create.experience' | translate}}</mat-label>
+                <mat-select formControlName="experienceInYears" required>
+                    <mat-option
+                        *ngFor="let level of hireService.enumKeys(experience)"
+                        [value]="+level">
+                        {{ experience[level] }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100%" appearance="outline">
+                <mat-label>{{'profile.create.linkedin' | translate}}</mat-label>
+                <input matInput formControlName="linkedinUrl" [required]="!form.value.isAnonymous">
+                <mat-error
+                    *ngIf="form.get('linkedinUrl').hasError('httpsMissing')">
+                    {{'profile.create.url' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="100%" appearance="outline">
+                <mat-label> {{'profile.create.cv' | translate}}</mat-label>
+                <input matInput formControlName="cvUrl">
+            </mat-form-field>
+            <!-- devorld comment List of companies -->
+            <mat-form-field fxFlex="100%" appearance="outline" *ngIf="!isShowSavedCopmanies">
+                <input type="text" placeholder="{{'profile.create.hide_me' | translate}}" aria-label="Select Companies" matInput [matAutocomplete]="auto" [formControl]="userControl">
+            </mat-form-field>
+            
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+                <mat-option *ngFor="let user of filteredUsers | async" [value]="selectedUsers">
+                    <div (click)="optionClicked($event, user)">
+                        <mat-checkbox [checked]="user.selected" (change)="toggleSelection(user)" (click)="$event.stopPropagation()">
+                            {{ user.name }}
+                        </mat-checkbox>
+                    </div>
+                </mat-option>
+            </mat-autocomplete>
+            <ng-container *ngIf="!isShowSavedCopmanies">
+                <label *ngIf="selectedUsers?.length > 0 ">{{'profile.create.selected_com' | translate}}:</label>
+                <span *ngFor="let user of selectedUsers">
+                    {{ user.name }}
+                </span>
+            </ng-container>
+            <br><br>
+            <mat-form-field *ngIf="selectOtherComp && !isShowSavedCopmanies" fxFlex="100%" appearance="outline">
+                <mat-label>{{'profile.create.company_name' | translate}}</mat-label>
+                <textarea matInput formControlName="ownNameCompany"></textarea>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="isShowSavedCopmanies" fxFlex="100%" appearance="outline">
+                <mat-label>{{'profile.create.hide_me' | translate}}:</mat-label>
+                <textarea matInput formControlName="allSelectedCompanies"></textarea>
+            </mat-form-field>
+            <br><br>
+
+            <!-- end devorld comment List of companies -->
+            <div class="toggles" fxFlex="100%">
+                <div class="mb-12">
+                    <mat-slide-toggle formControlName="isRemote">
+                        {{'profile.create.remote' | translate}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
+            <div class="toggles" fxFlex="100%">
+                <div class="mb-12">                   
+                    <mat-slide-toggle formControlName="education">
+                        {{'profile.create.education' | translate}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
+            <div class="toggles" fxFlex="100%">
+                <div class="mb-12">
+                    <mat-slide-toggle formControlName="courses">
+                        {{'profile.create.courses' | translate}}
+                    </mat-slide-toggle>
+                </div>
+            </div>
+        </div>
+        <div class="text-right mb-16">
+            <!-- <hr> -->
+            <button (click)="save()"mat-raised-button class="blue-btn">{{'save' | translate}} 
+                    <!-- [disabled]="!form.valid || progress" -->
+            </button>
+        </div>
+    </form>
+</ng-container>

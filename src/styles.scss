@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// @import "../node_modules/font-awesome/css/font-awesome.min.css";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$MScore-primary: mat-palette($mat-indigo);
+$MScore-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$MScore-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$MScore-theme: mat-light-theme($MScore-primary, $MScore-accent, $MScore-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($MScore-theme);
+
+// Import Fuse core library
+@import "@fuse/scss/core";
+
+// Import app.theme.scss
+@import "app/app.theme";
+@import "app/scss/global";
+
+.warn {
+    color: red;
+}
+html {
+    font-size: 62.5%;
+    font-family: 'Mulish', sans-serif !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -0.1px !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; overflow-x: hidden;}
+// new ui 
+h2 { font-size: 36px !important;}
+h3 { font-size: 24px !important;}
+h4 { font-size: 20px !important;}
+h5 { font-size: 16px !important;}
+// end new ui
+.report-right{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 50%;
+    right: 0;
+    background-color: red;
+    transform: rotate(-90deg);
+    /* Legacy vendor prefixes that you probably don't need... */
+
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+
+    /* IE */
+    -ms-transform: rotate(-90deg);
+
+    /* Opera */
+    -o-transform: rotate(-90deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+i.fa{
+    font-family: 'FontAwesome' !important;
+    font-size: 14px;
+}

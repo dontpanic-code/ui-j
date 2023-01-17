@@ -1,0 +1,33 @@
+<section class="main-page justify-content-center align-items-center">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <h2 class="text-center main-title mb-6">
+            <span>{{'main.title1' | translate}} </span> 
+            <span>{{'main.title2' | translate}} </span> 
+            <span>{{'main.title3' | translate}}</span>
+        </h2>
+        <p class="main__text text-center">
+            {{'main.desc' | translate}}
+        </p>
+        <div class="d-flex flex-row justify-content-center align-items-center buttons">
+             <button type="button" class="btn btn-warning" (click)="goToLoIn('seeker')">{{'job_seeker' | translate}}</button>
+             <button type="button" class="btn btn-primary" (click)="goToLoIn('recruiter')">{{'recruiter' | translate}}</button>
+        </div>
+    </div>
+</section>
+
+<!-- <div class="main-page fullwidth">
+    <div class="center">
+        <h2 class="text-center main-title mb-6">{{'main.title' | translate}}:</h2>
+        <div class="text-center fullwidth headers ">
+            <h2>- {{'main.item1' | translate}};</h2>
+            <h2>- {{'main.item2' | translate}};</h2>
+            <h2>- {{'main.item3' | translate}}.</h2>
+        </div>
+        <div class="text-center fullwidth btns__maon-page">
+            <a class="btn-donate__main-page" rel="noopener noreferrer" (click)="goToLoIn('recruiter')">{{'recruiter' | translate}}</a>
+            <a class="btn-donate__main-page" rel="noopener noreferrer" (click)="goToLoIn('seeker')">{{'job_seeker' | translate}}</a>
+        </div>
+    </div>
+</div> -->
+
+

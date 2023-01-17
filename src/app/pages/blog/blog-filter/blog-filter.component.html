@@ -1,0 +1,106 @@
+<!-- <div
+    style="visibility: hidden; display: none; width: 285px; height: 801px; margin: 0px; float: none; position: static; inset: 85px auto auto;">
+</div>
+<div data-settings="{&quot;parent&quot;:&quot;#content&quot;,&quot;mind&quot;:&quot;#header&quot;,&quot;top&quot;:10,&quot;breakpoint&quot;:992}"
+    data-toggle="sticky" class="sticky" style="top: 85px;"> -->
+
+
+    <!-- <div class="text-sm mb-3">
+    <mat-form-field appearance="fill">
+        <mat-label>Toppings</mat-label>
+        <mat-select [formControl]="toppings" multiple>
+          <mat-select-trigger>
+            {{toppings.value?.[0]}}
+            <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div> -->
+
+
+    <!-- <div class="sticky-inner">
+        <div class="mb-3">
+            <h4 class="px-3 py-4 op-5 m-0">
+                Popular Topics
+            </h4>
+            <hr class="m-0">
+            <div class="pos-relative px-3 py-3">
+                <h6 class="text-primary text-sm">
+                    <a href="#" class="text-primary">Why Bootstrap 4 is so awesome? </a>
+                </h6>
+                <p class="mb-0 text-sm">
+                    AppStrapMaster, 20.08.2022
+                </p>
+            </div>
+            <hr class="m-0">
+            <div class="pos-relative px-3 py-3">
+                <h6 class="text-primary text-sm">
+                    <a href="#" class="text-primary">Custom shortcut or command to launch command in
+                        terminal? </a>
+                </h6>
+                <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">58
+                        minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">DanielD</a></p>
+            </div>
+            <hr class="m-0">
+            <div class="pos-relative px-3 py-3">
+                <h6 class="text-primary text-sm">
+                    <a href="#" class="text-primary">HELP! My Windows XP machine is down </a>
+                </h6>
+                <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">48
+                        minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">DanielD</a></p>
+            </div>
+            <hr class="m-0">
+            <div class="pos-relative px-3 py-3">
+                <h6 class="text-primary text-sm">
+                    <a href="#" class="text-primary">HELP! My Windows XP machine is down </a>
+                </h6>
+                <p class="mb-0 text-sm"><span class="op-6">Posted</span> <a class="text-black" href="#">38
+                        minutes</a> <span class="op-6">ago by</span> <a class="text-black" href="#">DanielD</a></p>
+            </div>
+            <hr class="m-0">
+        </div>
+        <div class="text-sm">
+            <h4 class="px-3 py-4 op-5 m-0">
+                Stats
+            </h4>
+            <hr class="my-0">
+            <div class="row text-center d-flex flex-row op-7 mx-0">
+                <div class="col-sm-6 flex-ew text-center py-3 border-bottom border-right"> <a
+                        class="d-block font-weight-bold" href="#">58</a> Topics </div>
+                <div class="col-sm-6 col flex-ew text-center py-3 border-bottom mx-0"> <a
+                        class="d-block font-weight-bold" href="#">1.856</a> Posts </div>
+            </div>
+            <div class="row d-flex flex-row op-7">
+                <div class="col-sm-6 flex-ew text-center py-3 border-right mx-0"> <a class="d-block font-weight-bold"
+                        href="#">300</a> Members </div>
+                <div class="col-sm-6 flex-ew text-center py-3 mx-0"> <a class="d-block font-weight-bold"
+                        href="#">DanielD</a> Newest Member </div>
+            </div>
+        </div>
+    </div> -->
+<!-- </div> -->
+
+<div class="about">
+    <div class="about__logo">
+        <img src="assets/images/j_logo.svg" alt="">
+        <h3>Juniverse<br>Forum</h3>
+    </div>
+    <div class="about__text">
+        <p>This is Juniors` territory, where you can share your question or experience with each other.</p>
+    </div>
+</div>
+
+<div class="categories">
+    <h4>Categories:</h4>
+    <!-- *ngFor="let level of hireService.enumKeys(postTypes)" -->
+    <ul>
+        <li *ngFor="let level of hireService.enumKeys(postTypes)" [class.highlight] = "selectedItem == postTypes[level]" (click)="postType(postTypes[level])">
+            <img [src]="'assets/images/post-types/t'+level+'.svg'" alt="">
+            {{postTypes[level]}}
+        </li>
+        <li (click)="postType('')">All</li>
+    </ul>
+</div>

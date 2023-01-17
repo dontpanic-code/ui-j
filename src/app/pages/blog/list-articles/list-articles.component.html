@@ -1,0 +1,39 @@
+<app-user-links></app-user-links>
+<div class="top">
+    <div class="top__item">
+        <div class="top__block">
+            <h3>List Of Top Articles!</h3>
+        </div>
+    </div>
+    <div class="top__item">
+        <div class="top__block" *ngIf="isEmpty">
+            <p>{{'forums.empty' | translate}}</p>
+        </div>
+        <div class="top__block" *ngIf="!isEmpty">
+            <div class="top__list" *ngFor="let art of toppingList" (click)="open(art.id)">
+                <div class="top__name">{{art.title}}</div>
+                <div class="top__date">{{art.date}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="top__item">
+        <div class="top__block">
+            <button class="btn login" [class.highlight] = "isTop" (click)="sort()" *ngIf="isTop">Back to Latest</button>
+            <button class="btn login" [class.highlight] = "isTop" (click)="sort()" *ngIf="!isTop">More</button>
+        </div>
+    </div>
+</div>
+<div class="pet">
+    <div class="pet__item">
+        <div class="pet__title">
+            <h3>Developer Wanted for Pet Project</h3>
+        </div>
+        <div class="pet__img">
+            <img src="assets/images/pet.jpg" alt="">
+        </div>
+        <div class="pet__button">
+            <!-- <button class="btn login">Join</button> -->
+            <button class="btn login" disabled>Coming soon</button>
+        </div>
+    </div>
+</div>

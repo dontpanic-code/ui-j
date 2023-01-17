@@ -1,0 +1,197 @@
+<div class="page-layout carded">
+    <div class="center">
+        <!-- *ngIf="isRecruiter" -->
+        <div class="page-container mat-elevation-z6 job-create">
+            <div class="job-form">
+                <div>
+                    <div class="h1 pb-20 text-center">{{'newJob.title_edit' | translate}}</div>
+                    <form [formGroup]="form">
+                        <div fxLayout="row wrap" fxLayoutAlign="space-between">
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'newJob.job_title' | translate}}: </mat-label>
+                                <input matInput formControlName="jobTitle" required maxlength="200">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'profile.create.company_name' | translate}}: </mat-label>
+                                <input matInput formControlName="companyName" required maxlength="200">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'newJob.about' | translate}}: </mat-label>
+                                <input matInput formControlName="aboutProject" required maxlength="200">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'newJob.interview' | translate}}: </mat-label>
+                                <input matInput formControlName="stagesInterview" required maxlength="200">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%" >
+                                <mat-label>{{'newJob.experience' | translate}}</mat-label>
+                                <mat-select formControlName="experience" required>
+                                    <mat-option
+                                        *ngFor="let level of hireService.enumKeys(experiences)"
+                                        [value]="+level">
+                                        {{ experiences[level] }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'eng_level' | translate}}: </mat-label>
+                                <mat-select formControlName="englishLevel" required>
+                                    <mat-option
+                                        *ngFor="let level of hireService.enumKeys(englishLevels)"
+                                        [value]="englishLevels[level]">
+                                        {{ englishLevels[level] }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'newJob.salary' | translate}}: </mat-label>
+                                <input matInput formControlName="salaryRange" required>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'jobList.filter.workplace' | translate}}:</mat-label>
+                                <mat-select formControlName="tmpWT" multiple required>
+                                <mat-option *ngFor="let level of hireService.enumKeys(workplaceType)" [value]="workplaceType[level]">{{workplaceType[level]}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'jobList.filter.employment' | translate}}:</mat-label>
+                                <mat-select formControlName="tmpET" multiple required>
+                                <mat-option *ngFor="let level of hireService.enumKeys(employmentType)" [value]="employmentType[level]">{{employmentType[level]}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'jobList.table.requirements' | translate}}: </mat-label>
+                                <textarea  matInput formControlName="jobRequirements" required maxlength="400"> </textarea>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'jobList.table.what' | translate}} {{'newJob.what' | translate}}: </mat-label>
+                                <textarea  matInput formControlName="stack" required maxlength="400"></textarea>
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'jobList.table.benefits' | translate}}: </mat-label>
+                                <textarea  matInput formControlName="benefits" required maxlength="400"></textarea>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'country' | translate}}</mat-label>
+                                <input type="text"
+                                       placeholder="Pick one"
+                                       aria-label="country"
+                                       matInput
+                                       formControlName="country"
+                                       [matAutocomplete]="autoCountry"
+                                       required>
+                                <mat-autocomplete #autoCountry="matAutocomplete" (optionSelected)="getCities($event.option.value)">
+                                  <mat-option *ngFor="let country of filteredCountries | async" [value]="country.name">
+                                      {{country.name}}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+                              <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{'city' | translate}}</mat-label>
+                                <input type="text"
+                                       placeholder="Pick one"
+                                       aria-label="city"
+                                       formControlName="city"
+                                       matInput
+                                       [matAutocomplete]="autoCity"
+                                       required>
+                                <mat-autocomplete #autoCity="matAutocomplete">
+                                  <mat-option *ngFor="let city of filteredCities | async" [value]="city.name">
+                                      {{city.name}}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+
+                            <mat-radio-group aria-label="Select an option" required formControlName="radioGroup" [(ngModel)]="contactType" >
+                                <mat-label>{{'newJob.contact' | translate}}: </mat-label>
+                                <mat-radio-button value="Email" name="Email" ngDefaultControl (change)="selectContactType($event)" formControlName="radioBtn">Email</mat-radio-button>
+                                <mat-radio-button value="Skype" name="Skype" ngDefaultControl (change)="selectContactType($event)" formControlName="radioBtn">Skype</mat-radio-button>                            
+                                <mat-radio-button value="Telegram" name="Telegram" ngDefaultControl (change)="selectContactType($event)" formControlName="radioBtn">Telegram</mat-radio-button>
+                                <mat-radio-button value="WhatsApp" name="WhatsApp" ngDefaultControl (change)="selectContactType($event)" formControlName="radioBtn">WhatsApp</mat-radio-button>
+                                <mat-radio-button value="Signal" name="Signal" ngDefaultControl (change)="selectContactType($event)" formControlName="radioBtn">Signal</mat-radio-button>                           
+                            </mat-radio-group>
+                            <p><br></p>
+                            <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+                                <mat-label>{{contactType}}</mat-label>     
+                                <span matPrefix>{{contactLink}} &nbsp;</span>                       
+                                <input matInput formControlName="contacts" required maxlength="200">   
+                                <mat-hint>{{'newJob.result_example' | translate}}: {{exampleLink}}</mat-hint>                              
+                            </mat-form-field>
+                            
+                            <mat-form-field class="example-chip-list small-input" appearance="outline" fxFlex="100%">
+                                <mat-label>{{'newJob.tag' | translate}}</mat-label>
+                                <mat-chip-list #chipList aria-label="Fruit selection" [required]="isRequired" formControlName="tmpTags">
+                                  <mat-chip
+                                    *ngFor="let fruit of fruits"
+                                    (removed)="remove(fruit)">
+                                    {{fruit}}
+                                    <mat-icon matChipRemove>cancel</mat-icon>
+                                  </mat-chip>
+                                  <input
+                                    placeholder="{{'newJob.new_stack' | translate}}"
+                                    #fruitInput                                    
+                                    [formControl]="fruitCtrl"                                    
+                                    [matAutocomplete]="auto"
+                                    [matChipInputFor]="chipList"
+                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                    (matChipInputTokenEnd)="add($event)">
+                                </mat-chip-list>
+                                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                                  <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                    {{fruit}}
+                                  </mat-option>
+                                </mat-autocomplete>
+                              </mat-form-field>
+
+
+                            
+                        </div>   
+
+                        <div *ngIf="isPreview">
+                            <mat-card class="example-card">
+                                <mat-card-title>{{form.controls['jobTitle'].value}}</mat-card-title>
+                                <mat-card-subtitle><mat-icon> person_pin</mat-icon> {{form.controls['companyName'].value}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> info</mat-icon> {{form.controls['aboutProject'].value}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> file_copy</mat-icon> {{'newJob.interview' | translate}}: {{form.controls['stagesInterview'].value}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> language</mat-icon> {{'eng_level' | translate}}: {{form.controls['englishLevel'].value}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> attach_money</mat-icon> {{form.controls['salaryRange'].value}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> laptop_mac</mat-icon> {{form.controls['workplaceType'].value}}</mat-card-subtitle>
+                                <mat-card-subtitle><mat-icon> how_to_reg</mat-icon> {{form.controls['employmentType'].value}}</mat-card-subtitle>                    
+                                <mat-card-content>
+                                  <p><b>{{'jobList.table.requirements' | translate}}:</b><br>{{form.controls['jobRequirements'].value}}</p>
+                                  <p><b>{{'jobList.table.what' | translate}}</b><br>{{form.controls['stack'].value}}</p>
+                                  <p><b>{{'jobList.table.benefits' | translate}}:</b><br>{{form.controls['benefits'].value}}</p>
+                                </mat-card-content>
+                                <mat-card-subtitle><mat-icon> contact_mail</mat-icon> <b> {{'jobList.table.contact' | translate}}:</b> {{form.controls['radioGroup'].value}}: <a href="{{contactLink+form.controls['contacts'].value}}">{{form.controls['contacts'].value}}</a></mat-card-subtitle>
+                            </mat-card>                    
+                        </div> 
+
+
+                        <div class="text-right mb-16 mt-16">
+                            <a mat-mini-fab (click)="preview()"  aria-label="Example icon a with a filter list icon" class="ml-16 mr-16 blue-btn">
+                                <mat-icon *ngIf="!isPreview" >visibility</mat-icon>
+                                <mat-icon *ngIf="isPreview">visibility_off</mat-icon>
+                            </a>
+
+                            <a mat-mini-fab (click)="newVacation()" aria-label="Example icon a with a filter list icon" class="mr-16 blue-btn">
+                                <mat-icon *ngIf="visibleBtnJobList">add</mat-icon>
+                                <mat-icon *ngIf="!visibleBtnJobList">delete</mat-icon>
+                            </a>
+
+                            <button (click)="save()" mat-raised-button class="blue-btn" >{{'save' | translate}} 
+                            </button>                            
+                            <button [routerLink]="'/myjobs'" mat-raised-button class="btn_jobList mr-16 blue-btn" *ngIf="visibleBtnJobList" >{{'newJob.my_job' | translate}}
+                            </button>
+                            <button [routerLink]="'/jobs'" mat-raised-button class="btn_jobList blue-btn" *ngIf="visibleBtnJobList" >{{'newJob.job_list' | translate}}
+                            </button>
+                        </div>                 
+                    </form>
+                </div>
+                              
+            </div>                 
+        </div>
+    </div>
+</div>
+
+

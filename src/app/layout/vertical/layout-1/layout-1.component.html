@@ -1,0 +1,128 @@
+<!-- SIDE PANEL -->
+<!-- <ng-container
+    *ngIf="!fuseConfig.layout.sidepanel.hidden && fuseConfig.layout.sidepanel.position === 'left'"
+> -->
+    <!-- PANEL CONTENT -->
+<!-- </ng-container> -->
+<!-- / SIDE PANEL -->
+
+<!-- <div id="main"> -->
+    <!-- TOOLBAR: Above -->
+    <!-- <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'above'">
+        <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+    </ng-container> -->
+    <!-- / TOOLBAR: Above -->
+
+    <!-- <div id="container-1" class="container"> -->
+        <!-- NAVBAR: Left -->
+        <!-- <ng-container *ngIf="fuseConfig.layout.navbar.position === 'left'">
+            <ng-container *ngTemplateOutlet="leftNavbar"></ng-container>
+        </ng-container> -->
+        <!-- / NAVBAR: Left -->
+
+        <!-- <div id="container-2" class="container"> -->
+            <!-- TOOLBAR: Below fixed -->
+            <!-- <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'below-fixed'">
+                <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+            </ng-container> -->
+            <!-- / TOOLBAR: Below fixed -->
+
+            <!-- <div
+                id="container-3"
+                class="container"
+            > -->
+                <!-- TOOLBAR: Below static TRUE MENU!!!!! -->
+                <!-- <ng-container *ngIf="fuseConfig.layout.toolbar.position === 'below-static'">
+                    <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+                </ng-container> -->
+                <!-- / TOOLBAR: Below static -->
+
+                <!-- CONTENT !!!!!!-->
+                <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+                <app-content></app-content>
+                <div class="page-layout footer fullwidth text-center mt-70">
+                    <p>{{'footer.part1' | translate}} <a href="https://forms.gle/749yPp9V55X7YX7d7" target="_blank">{{'footer.link' | translate}}</a>!<br>{{'footer.part2' | translate}}</p>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="https://savelife.in.ua/donate/" target="_blank" rel="noopener noreferrer" class="text-dark text-decoration-none">
+                            <div class="d-flex justify-content-center align-items-center help">
+                                <div class="help__logo me-3">
+                                    <img src="assets/images/help-logo.svg" alt="">
+                                </div>
+                                <div class="help__text">
+                                    <p>{{'footer.help1' | translate}} <br>
+                                        {{'footer.help2' | translate}}<br>
+                                        {{'footer.help3' | translate}}<br>
+                                        {{'footer.help4' | translate}}</p>
+                                </div>
+                            </div>
+                        </a>                        
+                    </div>            
+
+                    <p class="mt-3">Copyright © Juniverse</p>
+                </div>
+                <!-- / CONTENT -->
+            <!-- </div> -->
+        <!-- </div> -->
+
+        <!-- NAVBAR: Right -->
+        <!-- <ng-container *ngIf="fuseConfig.layout.navbar.position === 'right'">
+            <ng-container *ngTemplateOutlet="rightNavbar"></ng-container>
+        </ng-container> -->
+        <!-- / NAVBAR: Right -->
+    <!-- </div>     -->
+<!-- </div> -->
+
+<!-- SIDE PANEL -->
+<ng-container
+    *ngIf="!fuseConfig.layout.sidepanel.hidden && fuseConfig.layout.sidepanel.position === 'right'"
+>
+    <!-- PANEL CONTENT -->
+</ng-container>
+<!-- / SIDE PANEL -->
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<!-- @ PARTIALS                                                                                            -->
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<!-- TOOLBAR -->
+<ng-template #toolbar>
+    <app-toolbar
+        *ngIf="!fuseConfig.layout.toolbar.hidden"
+        [ngClass]="
+      fuseConfig.layout.toolbar.customBackgroundColor === true
+        ? fuseConfig.layout.toolbar.position + ' ' + fuseConfig.layout.toolbar.background
+        : fuseConfig.layout.toolbar.position
+    "
+    >
+    </app-toolbar>
+</ng-template>
+<!-- / TOOLBAR -->
+
+<!-- LEFT NAVBAR -->
+<!-- <ng-template #leftNavbar>
+    <fuse-sidebar
+        name="navbar"
+        class="navbar-fuse-sidebar"
+        [folded]="fuseConfig.layout.navbar.folded"
+        lockedOpen="gt-md"
+        *ngIf="!fuseConfig.layout.navbar.hidden"
+    >
+        <app-navbar [variant]="fuseConfig.layout.navbar.variant" class="left-navbar"></app-navbar>
+    </fuse-sidebar>
+</ng-template> -->
+<!-- / LEFT NAVBAR -->
+
+<!-- RIGHT NAVBAR -->
+<!-- <ng-template #rightNavbar>
+    <fuse-sidebar
+        name="navbar"
+        position="right"
+        class="navbar-fuse-sidebar"
+        [folded]="fuseConfig.layout.navbar.folded"
+        lockedOpen="gt-md"
+        *ngIf="!fuseConfig.layout.navbar.hidden"
+    >
+        <app-navbar [variant]="fuseConfig.layout.navbar.variant" class="right-navbar"></app-navbar>
+    </fuse-sidebar>
+</ng-template> -->
+<!-- / RIGHT NAVBAR -->

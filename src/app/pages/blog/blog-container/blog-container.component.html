@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 mb-4 mb-lg-0 px-lg-0 mt-lg-0">
+            <app-blog-filter></app-blog-filter>
+        </div>
+        <div class="col-lg-9 mb-3">
+            <app-top-tags></app-top-tags>
+            <div class="row">
+                <!-- <app-blog-single></app-blog-single> -->
+                <div class="col-lg-8 mb-3" *ngIf="!idPost && !isMy"><app-blog-table></app-blog-table></div>
+                <div class="col-lg-8 mb-3" *ngIf="idPost && !isMy"><app-blog-single [_idPost]="idPost"></app-blog-single></div>
+                <div class="col-lg-8 mb-3" *ngIf="isMy"><app-my-blog></app-my-blog></div>
+                <div class="col-lg-4"><app-list-articles></app-list-articles></div>
+            </div>
+        </div>
+    </div>
+    <div class="center">
+        <a href="https://pay.fondy.eu/s/P2YiT" target="_blank" class="btn-donate text-center">Donate Juniverse</a>
+    </div>
+</div>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header1">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body1">
+        <app-blog-filter></app-blog-filter>
+    </div>
+</div>
+
+
+
+<!-- <div class="page-layout carded filter-table-layout fullwidth">
+    <div class="center">
+        <div class="page-container">
+            <app-blog-filter class="left filter-fixed-container" style="z-index: 999 !important;"></app-blog-filter>
+            <app-blog-table class="right" style="z-index: 1 !important;"></app-blog-table>
+        </div>
+        <a href="https://pay.fondy.eu/s/P2YiT" target="_blank" class="btn-donate text-center">Donate Juniverse</a>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header1">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body1">
+        <app-blog-filter></app-blog-filter>
+    </div>
+</div> -->

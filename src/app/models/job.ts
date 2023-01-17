@@ -1,0 +1,30 @@
+export class Job {
+    id?: number;
+    jobTitle: string;
+    companyName: string;
+    aboutProject: string;
+    jobRequirements: string;
+    stack: string;
+    stagesInterview: string;
+    englishLevel: string;
+    salaryRange: string;
+    workplaceType: string;
+    employmentType: string;
+    benefits: string;
+    contacts: string;
+    contactType: string;
+    contactLink: string;
+    tags: string;
+    isApproved?: boolean;
+    dateCreated?: string;
+    email?: string;
+    position?: string;
+    positionOther?: string;
+    company?: string;
+    companyOther?: string;
+    fullName?: string;
+    idR?: number;
+    country?: string;
+    city?: string;
+    experience?: number;
+}

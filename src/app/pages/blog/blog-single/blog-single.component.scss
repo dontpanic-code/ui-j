@@ -1,0 +1,110 @@
+*{
+    font-family: 'Mulish';
+}
+// .single-post{
+//     padding: 20px;
+//     padding-left: 40px;
+// }
+
+
+.card{
+    &__date{
+        font-size: 12px;
+    }
+}
+
+
+.action{
+    margin-top: 15px;
+    column-gap: 30px;
+    &__item{
+        svg{
+            margin-right: 10px;
+        }
+    }
+}
+
+.icon-1x {
+    font-size: 24px !important;
+}
+h5 a, h6 a{
+    text-decoration:none;    
+    font-size: 16px;
+    font-weight: 700 !important;
+}
+h6 a{
+    font-size: 14px;
+    color: #000 !important;
+}
+.text-primary, a.text-primary:focus, a.text-primary:hover {
+    color: #00ADBB!important;
+}
+.text-black, .text-hover-black:hover {
+    color: #000 !important;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+.py-4 {
+    padding-top: 1.5rem!important;
+    padding-bottom: 1.5rem!important;
+    padding: 1.5rem;
+}
+.dropdown, select{
+    background: transparent !important;
+    border: none !important;
+}
+
+.bookmark{
+    cursor: pointer;
+    &:hover{
+        svg{
+            filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+        }
+    }
+}
+
+
+.highlight{
+    svg{
+        filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+    }
+    &:hover{
+        svg{
+            filter: none;
+        }
+    }
+}
+
+.markB{
+    filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+    &:hover{
+        filter: none;
+    }
+}
+
+
+.like{
+    cursor: pointer;
+    &:hover{
+        svg{
+            fill: red;
+        }
+    }
+}
+
+.highlight-like{
+    svg{
+        // filter: invert(71%) sepia(28%) saturate(5021%) hue-rotate(161deg) brightness(88%) contrast(83%);
+        fill: red;
+    }
+    &:hover{
+        svg{
+            fill: none;
+        }
+    }
+}
+span[id^="cl"]{
+    display: inline-block;
+    margin-right: 7px;
+}

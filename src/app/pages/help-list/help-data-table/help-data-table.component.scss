@@ -1,0 +1,45 @@
+.help-list{
+    padding: 5px 5px 20px;
+    overflow-y: scroll;
+    position: relative;
+    // width: 95%;
+    // overflow-x: hidden !important;
+
+    mat-accordion{
+        box-sizing: border-box;
+        position: absolute;
+        max-width: 100% !important;
+        width: 97% !important;
+        padding: 20px 10px;
+        margin: 0 auto;
+        background: transparent !important;
+
+        mat-expansion-panel{
+            position: relative;
+            width: 100% !important;
+            background: transparent !important;
+        }
+    }
+    
+    
+
+    // .help-list-item:nth-child(odd)::before{
+    //     content: '';
+    //     display: inline-block;
+    //     width: 7px;
+    //     height: 7px;
+    //     background-color: yellow;
+    //     border-radius: 100%;
+    //     margin-right: 5px;
+    // }
+    // .help-list-item:nth-child(even)::before{
+    //     content: '🔗';
+    //     display: inline-block;
+    //     // width: 7px;
+    //     // height: 7px;
+    //     font-size: 10px;
+    //     // background-color:yellow;
+    //     border-radius: 100%;
+    //     margin-right: 5px;
+    // }
+}

@@ -1,0 +1,60 @@
+<ng-container *ngIf="formIsReady">
+  <div class="h1 pb-20 text-center">{{'profile.recruiter.title' | translate}}</div>
+  <form [formGroup]="form">
+      <div fxLayout="row wrap"
+           fxLayoutAlign="space-between">
+           <!-- devorld Position autocomplete -->
+           <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+              <mat-label>{{'hireList.table.position' | translate}}</mat-label>
+              <input type="text"
+                     placeholder="Pick one"
+                     aria-label="position"                                             
+                     matInput
+                     [matAutocomplete]="position"
+                     formControlName="position" 
+                     required>
+              <mat-autocomplete #position="matAutocomplete">
+                <mat-option *ngFor="let position of filteredOptionsPositions | async" [value]="position">
+                  {{position}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex="100%"
+                          *ngIf="form.value.position === 'Other'">
+              <mat-label>{{'profile.create.p_description' | translate}}</mat-label>
+              <textarea matInput formControlName="positionOther"></textarea>
+          </mat-form-field>
+          <!--end devorld Position autocomplete -->
+
+          <!-- devorld Company autocomplete -->
+          <mat-form-field appearance="outline" class="small-input" fxFlex="100%">
+            <mat-label>{{'profile.recruiter.Company' | translate}}</mat-label>
+            <input type="text"
+                   placeholder="Pick one"
+                   aria-label="company"                                             
+                   matInput
+                   [matAutocomplete]="company"
+                   formControlName="company" 
+                   required>
+            <mat-autocomplete #company="matAutocomplete">
+              <mat-option *ngFor="let company of filteredOptionsCompanies | async" [value]="company">
+                {{company}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100%"
+                        *ngIf="form.value.company === 'Other'">
+            <mat-label>{{'profile.create.company_name' | translate}}</mat-label>
+            <textarea matInput formControlName="companyOther"></textarea>
+        </mat-form-field>
+        <!--end devorld Company autocomplete -->
+          
+          
+      </div>
+      <div class="text-right mb-16">
+          <!-- <hr> -->
+          <button (click)="save()" [disabled]="!form.valid || progress" mat-raised-button class="blue-btn">{{'save' | translate}}
+          </button>
+      </div>
+  </form>
+</ng-container>

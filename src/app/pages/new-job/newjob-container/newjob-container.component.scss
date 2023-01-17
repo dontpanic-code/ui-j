@@ -1,0 +1,44 @@
+@import "src/@fuse/scss/fuse";
+.job-create{
+    overflow-y: scroll;
+    padding: 30px 0;
+
+    .mat-radio-button ~ .mat-radio-button {
+        margin-left: 16px;
+    }
+
+    .span_btn{
+        vertical-align: baseline; 
+    }
+    .example-card{
+        background-color: transparent !important;
+    }
+
+    .example-card mat-icon{
+        display: inline;
+        font-size: 15px;
+        vertical-align: middle !important;
+    }
+    mat-card{
+        padding-bottom: 50px !important;
+        white-space: pre-line;
+    }
+    .example-chip-list{
+        margin-top: 30px !important;
+    }
+}
+.job-form{
+    width: 80%;
+    margin: 0 auto;
+}
+.text-right{
+    padding-bottom: 30px;
+}
+.btn_jobList{
+    margin-left: 10px;
+}
+// .yellow{
+//     background-color: #fc0;
+//     color: #fff;
+// }
+

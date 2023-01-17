@@ -1,0 +1,79 @@
+<div class="fixed-pagination">
+    <div #fuse>       
+        <!-- <mat-card class="example-card" *ngFor="let job of jobsList">     let card of obs | async-->
+        <!-- <div class="jobs-list"> -->
+            <mat-card class="example-card" *ngFor="let job of obs | async">
+                <mat-card-title (click)="openJobCard(job.id)"><span>{{job.jobTitle}}</span> <sup> <mat-icon class="ml-5" color="accent">launch</mat-icon></sup></mat-card-title>
+                <mat-card-subtitle><mat-icon color="accent"> person_pin</mat-icon> {{job.companyName}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> info</mat-icon> {{job.aboutProject}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> file_copy</mat-icon> {{'newJob.interview' | translate}}: {{job.stagesInterview}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> language</mat-icon> {{'eng_level' | translate}}: {{job.englishLevel}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> attach_money</mat-icon> {{job.salaryRange}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> laptop_mac</mat-icon> {{job.workplaceType}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> how_to_reg</mat-icon> {{job.employmentType}}</mat-card-subtitle>                
+                <mat-card-content>
+                    <cdk-accordion class="example-accordion">
+                        <cdk-accordion-item
+                          #accordionItem="cdkAccordionItem"
+                          class="example-accordion-item"
+                          role="button"
+                          tabindex="0"
+                          [attr.id]="'accordion-header-' + job.id"
+                          [attr.aria-expanded]="accordionItem.expanded"
+                          [attr.aria-controls]="'accordion-body-' + job.id">
+                          <div class="example-accordion-item-header cursor-pointer" (click)="accordionItem.toggle()">
+                            {{'jobList.table.read' | translate}} {{ accordionItem.expanded ? ('jobList.table.less' | translate) : ('jobList.table.more' | translate) }} <mat-icon class="" color="">{{ accordionItem.expanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}</mat-icon>
+                          </div>
+                          <div
+                            class="example-accordion-item-body"
+                            role="region"
+                            [style.display]="accordionItem.expanded ? '' : 'none'"
+                            [attr.id]="'accordion-body-' + job.id"
+                            [attr.aria-labelledby]="'accordion-header-' + job.id">
+                                <p><b>{{'jobList.table.requirements' | translate}}:</b><br>{{job.jobRequirements}}</p>
+                                <p><b>{{'jobList.table.what' | translate}}</b><br>{{job.stack}}</p>
+                                <p><b>{{'jobList.table.benefits' | translate}}:</b><br>{{job.benefits}}</p>
+
+                                <mat-card-subtitle>
+                                    <mat-icon color="accent"> contact_mail</mat-icon> 
+                                    <b> {{'jobList.table.contact' | translate}}:</b> {{job.contactType}}: 
+                                    <a target="_blank" href="{{job.contactLink+job.contacts}}" target="_blank">{{job.contacts}}</a> 
+                                    <mat-icon class="ml-5 fs-10" color="accent">launch</mat-icon>
+                                </mat-card-subtitle>
+                                <div class="text-right"  *ngIf="job.fullName && !isRecruiter"> 
+                                    <button mat-mini-fab (click)="addFriend(job)" class="text-right" matTooltip="{{'send_message' | translate}}">
+                                        <mat-icon>message</mat-icon>  
+                                    </button>
+                                </div>
+                                <p class="text-right"><mat-card-subtitle>({{job.dateCreated}})</mat-card-subtitle></p>
+                          </div>                          
+                        </cdk-accordion-item>
+                      </cdk-accordion>
+                </mat-card-content>               
+            </mat-card>
+        <!-- </div> -->
+    </div>
+    <div class="" [ngClass]="{show: showPagination}">
+        <mat-paginator (page)="fuse.scrollTo(0,0); fuse"
+            [pageSizeOptions]="[10, 25, 50, 100]" >
+        </mat-paginator>
+    </div> 
+</div>
+
+<!-- SignalR instance -->
+<ng-chat *ngIf="signalRAdapter && signalRAdapter.userId && isAuthenticated && !isRecruiter"
+[adapter]="signalRAdapter"
+[userId]="signalRAdapter.userId"
+[historyEnabled]="true"
+[pollFriendsList]="true"
+(onParticipantClicked) = showChat($event)
+(onParticipantChatClosed) = chatClosed($event)
+(onMessagesSeen) = messageSeen($event)
+title="{{'messages' | translate}}"
+customTheme="custom-theme"
+[customTheme] = " './assets/themes/ng-chat.theme.dark.css' "
+[isViewportOnMobileEnabled] = "true"
+[isCollapsed] = "isCollapsed"
+viewportWidthCalculationEnabled="true"
+#ngChatInstance
+></ng-chat>

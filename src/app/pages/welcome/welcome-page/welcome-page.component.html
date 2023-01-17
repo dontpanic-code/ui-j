@@ -1,0 +1,31 @@
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="row ">
+        <div class="col-12 ">
+            <h2 class="text-center mb-5">{{'welcome.title' | translate}}</h2>
+
+            <ul *ngIf="!isRecruiter">
+                <li>
+                    <h3>{{'welcome.seeker.item1_part1' | translate}} <a href="/jobs">{{'welcome.seeker.link' | translate}}</a> {{'welcome.seeker.item1_part2' | translate}}</h3>
+                </li>
+                <li>
+                    <h3>{{'welcome.seeker.item2' | translate}}</h3>
+                </li>
+                <li>
+                    <h3>{{'welcome.seeker.item3' | translate}}</h3>
+                </li>
+                <li>
+                    <h3>{{'welcome.seeker.item4' | translate}}</h3>
+                </li>
+            </ul>
+
+            <ul *ngIf="isRecruiter">
+                <li>
+                    <h3>{{'welcome.recruiter.item1_part1' | translate}} <a href="/hire-me">{{'welcome.recruiter.link' | translate}}</a> {{'welcome.recruiter.item1_part2' | translate}}</h3>
+                </li>
+                <li>
+                    <h3>{{'welcome.recruiter.item2' | translate}}</h3>
+                </li>                
+            </ul>
+        </div>
+    </div>
+</div>

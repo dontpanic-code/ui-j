@@ -1,0 +1,92 @@
+<div class="page-layout carded  fullwidth inner-scroll ">
+    <!-- <div class="top-bg accent"></div> -->
+    <div class="center">
+        <div class="page-container my-account-container">
+
+            <div class="login-container" *ngIf="!isAuthenticated">
+
+                <div class="h1 pb-20 ">
+                    {{'login.title' | translate}}
+                </div>
+                <div *ngIf="!isSetType">
+                    <mat-radio-group aria-label="Select an option" fxFlex="100%" [(ngModel)]="userType" (change)="onChange($event)">
+                        <mat-radio-button value="seeker">{{'job_seeker' | translate}}</mat-radio-button>
+                        <mat-radio-button value="recruiter">{{'recruiter' | translate}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <button (click)="this.singIn('Google',userType)" mat-raised-button
+                            class="google login-button" [disabled]="isDisabled">
+                            {{'login.google' | translate}}
+                    </button>
+                </div>
+                <div>
+                    <button (click)="this.singIn('LinkedIn', userType)" mat-raised-button
+                        class="linkedin login-button" [disabled]="isDisabled">
+                        {{'login.linkedin' | translate}}
+                    </button>
+                </div>
+                <p>{{'login.privacy_policy' | translate}} <a href="/privacy">{{'login.privacy_policy_link' | translate}}</a></p>
+            </div>
+            <ng-container *ngIf="isAuthenticated">                
+                <div class="left correct-height text-center">
+                    <div class="avatar-container mat-elevation-z4">
+                        <img [src]="userPicture" class="img_cover" />
+                    </div>
+                    <div class="h1 ">{{ currentUser?.FullName }}</div>
+                    <div class="h5  mt-4">{{ currentUser?.Email }}</div>
+                    <div *ngIf="showRemoveButton">
+                        <button *ngIf="isUserType === 'seeker'" mat-raised-button class="mt-16 myaccount-btn blue-btn"
+                                (click)="editAccount()">
+                            <mat-icon style="position: relative; top: -1px;" class="">edit
+                            </mat-icon>
+                            {{'profile.edit' | translate}}
+                        </button>
+                        <button *ngIf="isUserType === 'recruiter'" mat-raised-button class="mt-16 myaccount-btn blue-btn"
+                                (click)="editAccountRecruiter()">
+                            <mat-icon style="position: relative; top: -1px;" class="">edit
+                            </mat-icon>
+                            {{'profile.edit' | translate}}
+                        </button>
+                        <br>
+                        <!-- <button *ngIf="isUserType === 'seeker'" mat-raised-button class="mt-16 myaccount-btn blue-btn"
+                                (click)="deleteAccount()">
+                            <mat-icon style="position: relative; top: -1px;" class="">delete
+                            </mat-icon>
+                            {{'profile.remove' | translate}}
+                        </button>
+                        <button *ngIf="isUserType === 'recruiter'" mat-raised-button class="mt-16 myaccount-btn blue-btn"
+                                (click)="deleteAccountRecruiter()">
+                            <mat-icon style="position: relative; top: -1px;" class="">delete
+                            </mat-icon>
+                            {{'profile.remove' | translate}}
+                        </button>
+                        <br> -->
+                        <button [routerLink]="['/myjobs']" mat-raised-button class="mt-16 myaccount-btn yellow-btn" *ngIf="isUserType === 'recruiter'">{{'profile.job_list' | translate}} 
+                        </button>
+                        <br>
+                        <button [routerLink]="['/moderator']" mat-raised-button class="mt-16 myaccount-btn yellow-btn" *ngIf="isModerator" >{{'profile.moderator.link' | translate}}
+                        </button>
+
+                    </div>
+                    <button mat-raised-button class="mt-16 myaccount-btn blue-btn"
+                            (click)="deleteAccountUser()">
+                        <mat-icon style="position: relative; top: -1px;" class="">delete
+                        </mat-icon>
+                        {{'profile.remove' | translate}}
+                    </button>
+                    <button  mat-button color="primary" class="mt-16 mb-16   "
+                            (click)="authenticationService.logout()">
+                        <mat-icon style="position: relative; top: -1px;" class="">exit_to_app
+                        </mat-icon>
+                        {{'profile.logout' | translate}}
+                    </button>
+                </div>
+                <app-my-account-form *ngIf="isUserType === 'seeker'" class="right"
+                ></app-my-account-form>
+                <app-recruiter-account-form *ngIf="isUserType === 'recruiter'" class="right"
+                ></app-recruiter-account-form>
+            </ng-container>
+        </div>
+    </div>
+</div>

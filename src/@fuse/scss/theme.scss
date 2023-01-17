@@ -1,0 +1,10 @@
+@import 'src/@fuse/components/sidebar/sidebar.theme';
+@mixin fuse-core-theme($theme) {
+    // Theming for Fuse core styles
+    @include colors-theme($theme);
+    @include material-theme($theme);
+    @include page-layouts-theme($theme);
+    @include typography-theme($theme);
+    // Theming for Fuse components
+    @include fuse-sidebar-theme($theme);
+}

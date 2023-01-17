@@ -1,0 +1,188 @@
+<div class="fixed-pagination">
+    <div #fuse>
+        <table [dataSource]="dataSource" class="hire-table" mat-table matSort>
+            
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header><span class="column-position"> {{'hireList.table.position' | translate}}</span>
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-position" [attr.mobile] = "'hireList.table.position' | translate">
+                    {{element.position}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="country">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-country">
+                    {{'country' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-country" [attr.mobile] = "'country' | translate">                    
+                    <ng-container *ngIf="element.country.length <=25">
+                        {{ element.country }}
+                    </ng-container>
+                    <ng-container *ngIf="element.country.length > 25">
+                        <div [matTooltipClass]="'large-tooltip'"
+                             [matTooltipShowDelay]="500"
+                             matTooltip="{{ element.country }}">
+                            {{ element.country | slice:0:25 }}...
+                        </div>
+                    </ng-container>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-city">
+                    {{'city' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-city" [attr.mobile] = "'city' | translate">
+                    {{ element.city }}
+                </td>
+            </ng-container>
+            <!-- Experience Column -->
+            <ng-container matColumnDef="experienceInYears">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-experiance">
+                    {{'hireList.table.experience' | translate}}<br>({{'hireList.filter.experienceMonth' | translate}})
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-experiance" [attr.mobile] = "'hireList.table.experience' | translate">
+                    {{ element.experienceInYears}} 
+                </td>
+            </ng-container>
+            <!-- English Column -->
+            <ng-container matColumnDef="englishLevel">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-english">
+                    {{'eng_level' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-english" [attr.mobile] = "'hireList.table.engWriting' | translate">
+                    <span [matTooltipClass]="'large-tooltip'"
+                        [matTooltipShowDelay]="500"
+                        matTooltip="{{ englishLevels[element.englishLevel] }}">
+                    {{ englishLevelsShort[element.englishLevel] }}
+                    </span>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="education">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-education">
+                    {{'education' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-education" [attr.mobile] = "'education' | translate">
+                    <mat-icon *ngIf="element.education" [matTooltipClass]="'large-tooltip'"
+                              [matTooltipShowDelay]="500"
+                              class="remote-icon"
+                              matTooltip="{{'education_tech' | translate}}">build
+                    </mat-icon>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="courses">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-courses">
+                    {{'courses' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-courses" [attr.mobile] = "'courses' | translate">
+                    <mat-icon *ngIf="element.courses" [matTooltipClass]="'large-tooltip'"
+                              [matTooltipShowDelay]="500"
+                              class="remote-icon"
+                              matTooltip="{{'courses' | translate}}">school
+                    </mat-icon>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="isRemote">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-remote">
+                    {{'hireList.table.remote' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-remote" [attr.mobile] = "'hireList.table.remote' | translate">
+                    <mat-icon *ngIf="element.isRemote" [matTooltipClass]="'large-tooltip'"
+                              [matTooltipShowDelay]="500"
+                              class="remote-icon"
+                              matTooltip="Remote">done
+                    </mat-icon>
+                </td>
+            </ng-container>
+            <!-- linkedinUrl Column -->
+            <ng-container matColumnDef="linkedinUrl">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header class="column-linkedin">
+                    {{'hireList.table.cv' | translate}}
+                </th>
+                <ng-container *ngIf="isAuthenticated">
+                    <td *matCellDef="let element" mat-cell class="column-linkedin" [attr.mobile] = "'jobList.table.contact' | translate">
+                        <div class="linkedin-container">
+                            <a *ngIf="element.linkedinUrl" [matTooltipClass]="'large-tooltip'"
+                               [matTooltipShowDelay]="500"
+                               href="{{element.linkedinUrl}}"
+                               matTooltip="{{'hireList.table.open_linkedin' | translate}}"
+                               target="_blank">
+                                <img class="linkedin-img" src="assets/images/linkedin.png"/>
+                            </a>
+                        </div>
+                        <mat-icon *ngIf="element.cvUrl" [matTooltipClass]="'large-tooltip'"
+                                  [matTooltipShowDelay]="500"
+                                  class="cv-link"
+                                  [cdkCopyToClipboard]="element.cvUrl"
+                                  matTooltip="{{'hireList.table.contact' | translate}}: {{element.cvUrl}} ({{'hireList.table.click_copy' | translate}})"
+                                  (click)="matSnackBarService.showMessage(msg)"
+                        >link
+                        </mat-icon> 
+                        <ng-container *ngIf="!showFullInfo">
+                            <img
+                                *ngIf="!element.showPersonalInfo "
+                                [matTooltipClass]="'large-tooltip'"
+                                [matTooltipPosition]="'left'"
+                                [matTooltipShowDelay]="500"
+                                matTooltip="CV link is hidden. Please contact with us for more information. Person id: {{element.id}}"
+                                class="hide-personal-data" src="assets/images/incognito.svg"/>
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </ng-container>
+            <ng-container matColumnDef="send" >
+            <!-- <ng-container matColumnDef="send" *ngIf="isRecruiter"> -->
+                <th *matHeaderCellDef mat-header-cell class="column-remote">
+                    {{'send_message' | translate}}
+                </th>
+                <td *matCellDef="let element" mat-cell class="column-remote">
+                    <button mat-icon-button class="send-btn" (click)="addFriend(element)" [disabled]="!isAuthenticated" *ngIf="!isAuthenticated">
+                        <mat-icon [matTooltipClass]="'large-tooltip'"
+                        [matTooltipShowDelay]="100"
+                        class="remote-icon disabled"
+                        matTooltip="{{'message_warning' | translate}}">message</mat-icon>
+                    </button>
+                    <button mat-icon-button class="send-btn" (click)="addFriend(element)" [disabled]="!isAuthenticated" *ngIf="isAuthenticated">
+                        <mat-icon class="remote-icon">message</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <tr *matHeaderRowDef="displayedColumns; " mat-header-row></tr> <!-- sticky: true -->
+            <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
+        </table>
+    </div>
+    <div class="" [ngClass]="{show: showPagination}">
+        <mat-paginator  (page)="fuse.scrollTo(0,0); fuse"
+                       [pageSizeOptions]="[25, 50, 100, 200]"></mat-paginator>
+    </div>   
+    
+</div>
+<!-- Offline bot instance -->
+<!-- <ng-chat *ngIf="!signalRAdapter || (signalRAdapter && !signalRAdapter.userId)" [adapter]="adapter"
+[groupAdapter]="adapter"
+[userId]="userId"
+[historyEnabled]="true"
+[historyPageSize]="4"
+[hideFriendsList]="false"
+></ng-chat> -->
+
+<!-- SignalR instance -->
+<ng-chat *ngIf="signalRAdapter && signalRAdapter.userId && isAuthenticated"
+[adapter]="signalRAdapter"
+[userId]="signalRAdapter.userId"
+[historyEnabled]="true"
+[pollFriendsList]="true"
+(onParticipantClicked) = showChat($event)
+(onParticipantChatClosed) = chatClosed($event)
+(onMessagesSeen) = messageSeen($event)
+title="{{'messages' | translate}}"
+customTheme="custom-theme"
+[customTheme] = " './assets/themes/ng-chat.theme.dark.css' "
+[isViewportOnMobileEnabled] = "true"
+[isCollapsed] = "isCollapsed"
+viewportWidthCalculationEnabled="true"
+#ngChatInstance
+></ng-chat>
+<!-- <ng-chat style="z-index: 999 !important;" *ngIf="isRecruiter || isAuthenticated" #ngChatInstance [adapter]="adapter" [userId]="currentUser.Id" title="Chats" [historyEnabled]="true" [historyPageSize]="4" [hideFriendsList]="false" [isCollapsed]="true" [isViewportOnMobileEnabled]="true" [historyEnabled] = "true" (onMessagesSeen)="messageSeen($event)" (onParticipantChatOpened) = showChat($event)></ng-chat> -->

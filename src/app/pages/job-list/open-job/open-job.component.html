@@ -1,0 +1,48 @@
+<div class="page-layout carded">
+    <div class="center">
+        <div class="page-container mb-20">
+            <!-- {{idJob}} -->
+            <mat-card class="example-card" *ngIf="jobsArray.length" style="z-index: 1 !important;">
+                <mat-card-title class="text-center">{{jobsArray[0].jobTitle}}</mat-card-title>
+                <mat-card-subtitle><mat-icon color="accent"> person_pin</mat-icon> {{jobsArray[0].companyName}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> info</mat-icon> {{jobsArray[0].aboutProject}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> file_copy</mat-icon> {{'newJob.interview' | translate}}: {{jobsArray[0].stagesInterview}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> language</mat-icon> {{'eng_level' | translate}}: {{jobsArray[0].englishLevel}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> attach_money</mat-icon> {{jobsArray[0].salaryRange}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> laptop_mac</mat-icon> {{jobsArray[0].workplaceType}}</mat-card-subtitle>
+                <mat-card-subtitle><mat-icon color="accent"> how_to_reg</mat-icon> {{jobsArray[0].employmentType}}</mat-card-subtitle>
+                
+                <mat-card-content>
+                <p><b>{{'jobList.table.requirements' | translate}}:</b><br>{{jobsArray[0].jobRequirements}}</p>
+                <p><b>{{'jobList.table.what' | translate}}</b><br>{{jobsArray[0].stack}}</p>
+                <p><b>{{'jobList.table.benefits' | translate}}:</b><br>{{jobsArray[0].benefits}}</p>
+                </mat-card-content>
+                <mat-card-subtitle><mat-icon color="accent"> contact_mail</mat-icon> <b> {{'jobList.table.contact' | translate}}:</b> {{jobsArray[0].contactType}}: <a target="_blank" href="{{jobsArray[0].contactLink+jobsArray[0].contacts}}" target="_blank">{{jobsArray[0].contacts}}</a><mat-icon class="ml-5 fs-10" color="accent">launch</mat-icon></mat-card-subtitle>
+                <div class="text-right"  *ngIf="jobsArray[0].fullName && !isRecruiter"> 
+                    <button mat-mini-fab (click)="addFriend(jobsArray[0])" class="text-right" matTooltip="{{'send_message' | translate}}">
+                        <mat-icon>message</mat-icon>  
+                    </button>
+                </div>
+                <p class="text-right"><mat-card-subtitle>({{jobsArray[0].dateCreated}})</mat-card-subtitle></p>
+            </mat-card>
+        </div>        
+    </div>
+</div>
+
+<!-- SignalR instance -->
+<ng-chat *ngIf="signalRAdapter && signalRAdapter.userId && isAuthenticated && !isRecruiter"
+[adapter]="signalRAdapter"
+[userId]="signalRAdapter.userId"
+[historyEnabled]="true"
+[pollFriendsList]="true"
+(onParticipantClicked) = showChat($event)
+(onParticipantChatClosed) = chatClosed($event)
+(onMessagesSeen) = messageSeen($event)
+title="{{'messages' | translate}}"
+customTheme="custom-theme"
+[customTheme] = " './assets/themes/ng-chat.theme.dark.css' "
+[isViewportOnMobileEnabled] = "true"
+[isCollapsed] = "isCollapsed"
+viewportWidthCalculationEnabled="true"
+#ngChatInstance
+></ng-chat>

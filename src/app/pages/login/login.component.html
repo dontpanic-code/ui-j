@@ -1,0 +1,48 @@
+<div id="login" class="inner-scroll" fxLayout="row" fxLayoutAlign="start">
+
+    <div id="login-intro" fxFlex fxHide fxShow.gt-xs>
+
+        <div class="logo" [@animate]="{value:'*',params:{scale:'0.2'}}">
+            <img src="assets/images/logos/mscore-logo-square.png">
+        </div>
+
+        <div class="title" [@animate]="{value:'*',params:{delay:'50ms',y:'25px'}}">
+            How Good Are Your Meetings?
+        </div>
+
+        <div class="description" [@animate]="{value:'*',params:{delay:'100ms',y:'25px'}}">
+            Better Meetings Is Better Business
+        </div>
+
+    </div>
+
+    <div id="login-form-wrapper" fusePerfectScrollbar
+         [@animate]="{value:'*',params:{delay:'300ms',x:'100%'}}">
+
+        <div id="login-form">
+
+            <div class="logo" fxHide.gt-xs>
+                <img src="assets/images/logos/mscore-favicon.png">
+            </div>
+
+            <!-- <div class="title">Sign in with Office 365</div> -->
+
+            <!-- <form name="loginForm">
+                <button (click)="singIn()" mat-raised-button color="accent" class="submit-button" aria-label="LOGIN">
+                    SIGN IN
+                </button>
+            </form> -->
+            <div fxLayout="column" fxLayoutAlign="start center">
+
+                <!-- <button (click)="this.singIn('Google')" mat-raised-button class="google">
+                    Log in with Google
+                </button>
+
+                <button (click)="this.singIn('Facebook')" mat-raised-button class="facebook">
+                    Log in with Facebook
+                </button> -->
+
+            </div>
+        </div>
+    </div>
+</div>

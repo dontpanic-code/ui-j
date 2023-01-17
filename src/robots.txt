@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rozrobnyk.com/sitemap.xml

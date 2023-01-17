@@ -1,0 +1,66 @@
+<div class="container-fluid">
+    <div class="social d-flex flex-row justify-content-end align-items-center">
+        <div class="social__links d-flex flex-row mr-5 align-items-center">
+            <p>Шукайте нас у </p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://www.linkedin.com/company/junjob/" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/linkedin.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="https://t.me/Job_IT_Junior" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/telegram.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="https://www.tiktok.com/@juniverse_ua" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/tiktok.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="http://" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/twitter.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="https://www.youtube.com/c/JunJob" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/youtube.svg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="social__podcast d-flex flex-row align-items-center">
+            <p>Наш подкаст</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://open.spotify.com/show/1RX8wkwGxu2zmFWcR1zhfk" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/spotify.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy9jMTA5YjY2MC9wb2RjYXN0L3Jzcw" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/googlepodcast.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="http://" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/applepodcast.svg" alt=""></a></li>
+                <li class="list-inline-item"><a href="http://" target="_blank" rel="noopener noreferrer"><img src="assets/images/logos/anchor.svg" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom " >
+
+        <ul class="nav col-lg-4 col-md-12 col-sm-12 col-12 mb-2 mb-md-0 ">
+            <li><a href="#" class="nav-link px-2 link-dark" [routerLink]="'hire-list'" [routerLinkActive]="'active'">{{'menu.hire_list' | translate}}</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark" [routerLink]="'jobs'" [routerLinkActive]="'active'">{{'menu.jobs' | translate}}</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark" [routerLink]="'about'" [routerLinkActive]="'active'">{{'menu.about' | translate}}</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark" [routerLink]="'forum'" [routerLinkActive]="'active'">{{'forum' | translate}}</a></li>
+        </ul>
+
+
+        <a [routerLink]="'/'" class="col-lg-4 col-md-12 col-sm-12 col-12 justify-content-center d-flex align-items-center mb-2 mb-md-0 text-dark text-decoration-none">
+            <img src="assets/images/logo.svg" alt="" class="logo cursor-pointer" [routerLink]="'/'" />
+        </a>
+
+        
+
+        <div class="col-lg-4 col-md-12 col-sm-12 col-12 text-end d-flex flex-wrap align-items-center justify-content-end buttons">
+            <button type="button" class="btn btn-light me-3 lang" (click)="switchLang()">{{lang}}</button>
+            <a href="https://pay.fondy.eu/s/P2YiT" target="_blank" class="btn btn-outline-primary me-3 text-decoration-none" role="button">{{'donate' | translate}}</a>
+
+            <button *ngIf="!isAuthenticated" type="button" class="btn login me-3" (click)="login()">{{'menu.login' | translate}}</button>
+
+            <div *ngIf="isAuthenticated" class="user">
+                <button class="navigation-button btn-user" mat-button [matMenuTriggerFor]="menu"> 
+                    <img [src]="userPicture" class="user_picture"/> 
+                </button>
+                <mat-menu #menu="matMenu" class="matMenu_user">
+                    <button *ngIf="isRecruiter" mat-button disabled>{{'recruiter' | translate}}</button>
+                    <button *ngIf="!isRecruiter" mat-button disabled>{{'job_seeker' | translate}}</button>
+                    <!-- <button mat-menu-item [routerLink]="'/hire-list'">Messages</button> --> 
+                    <!-- <button *ngIf="isRecruiter" mat-menu-item [routerLink]="'job/new'"><h5>{{'menu.new_job' | translate}}</h5></button> -->
+                    <!-- <button *ngIf="isAuthor" mat-menu-item [routerLink]="'forum/my'">Мої дописи</button> -->
+                    <button *ngIf="isRecruiter" mat-menu-item [routerLink]="'myjobs'">{{'menu.my_jobs' | translate}}</button>
+                    <button mat-menu-item [routerLink]="'my-account'">{{'menu.settings' | translate}}</button>
+                    <button mat-menu-item (click)="_authenticationService.logout()">{{'menu.logout' | translate}}</button>
+                </mat-menu>
+            </div> 
+
+            <mat-icon class="menu" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                filter_list
+            </mat-icon>
+        </div>
+    </header>
+</div>

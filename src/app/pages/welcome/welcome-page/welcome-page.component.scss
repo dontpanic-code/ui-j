@@ -1,0 +1,18 @@
+.contact-container {
+    width: 100%;
+    // max-width: 760px;
+    display: block;
+    // background: #ffffff;
+
+    .contact-title {
+        width: 100%;
+        font-size: 36px;
+    }
+    ul{
+        li{
+            h3{
+                line-height: 30px;
+            }            
+        }
+    }
+}
