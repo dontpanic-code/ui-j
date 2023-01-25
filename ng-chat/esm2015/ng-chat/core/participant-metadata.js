@@ -1,0 +1,6 @@
+export class ParticipantMetadata {
+    constructor() {
+        this.totalUnreadMessages = 0;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGFydGljaXBhbnQtbWV0YWRhdGEuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9uZy1jaGF0L2NvcmUvcGFydGljaXBhbnQtbWV0YWRhdGEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxPQUFPLG1CQUFtQjtJQUFoQztRQUVXLHdCQUFtQixHQUFXLENBQUMsQ0FBQztJQUMzQyxDQUFDO0NBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgUGFydGljaXBhbnRNZXRhZGF0YVxyXG57XHJcbiAgICBwdWJsaWMgdG90YWxVbnJlYWRNZXNzYWdlczogbnVtYmVyID0gMDtcclxufVxyXG4iXX0=

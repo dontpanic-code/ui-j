@@ -1,0 +1,20 @@
+export * from './ng-chat/core/chat-adapter';
+export * from './ng-chat/core/message';
+export * from './ng-chat/core/chat-participant-status.enum';
+export * from './ng-chat/core/user';
+export * from './ng-chat/core/participant-response';
+export * from './ng-chat/core/participant-metadata';
+export * from './ng-chat/core/window';
+export * from './ng-chat/core/localization';
+export * from './ng-chat/core/chat-controller';
+export * from './ng-chat/core/paged-history-chat-adapter';
+export * from './ng-chat/core/theme.enum';
+export * from './ng-chat/core/chat-option';
+export * from './ng-chat/core/group';
+export * from './ng-chat/core/chat-participant';
+export * from './ng-chat/core/chat-group-adapter';
+export * from './ng-chat/core/chat-participant-type.enum';
+export * from './ng-chat/core/message-type.enum';
+export * from './ng-chat/core/file-upload-adapter';
+export { NgChatModule } from './ng-chat/ng-chat.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxjQUFjLDZCQUE2QixDQUFDO0FBQzVDLGNBQWMsd0JBQXdCLENBQUM7QUFDdkMsY0FBYyw2Q0FBNkMsQ0FBQztBQUM1RCxjQUFjLHFCQUFxQixDQUFDO0FBQ3BDLGNBQWMscUNBQXFDLENBQUM7QUFDcEQsY0FBYyxxQ0FBcUMsQ0FBQztBQUNwRCxjQUFjLHVCQUF1QixDQUFDO0FBQ3RDLGNBQWMsNkJBQTZCLENBQUM7QUFDNUMsY0FBYyxnQ0FBZ0MsQ0FBQztBQUMvQyxjQUFjLDJDQUEyQyxDQUFDO0FBQzFELGNBQWMsMkJBQTJCLENBQUM7QUFDMUMsY0FBYyw0QkFBNEIsQ0FBQztBQUMzQyxjQUFjLHNCQUFzQixDQUFDO0FBQ3JDLGNBQWMsaUNBQWlDLENBQUM7QUFDaEQsY0FBYyxtQ0FBbUMsQ0FBQztBQUNsRCxjQUFjLDJDQUEyQyxDQUFDO0FBQzFELGNBQWMsa0NBQWtDLENBQUM7QUFDakQsY0FBYyxvQ0FBb0MsQ0FBQztBQUVuRCxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0sMEJBQTBCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS9jaGF0LWFkYXB0ZXInO1xyXG5leHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS9tZXNzYWdlJztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvY2hhdC1wYXJ0aWNpcGFudC1zdGF0dXMuZW51bSc7XHJcbmV4cG9ydCAqIGZyb20gJy4vbmctY2hhdC9jb3JlL3VzZXInO1xyXG5leHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS9wYXJ0aWNpcGFudC1yZXNwb25zZSc7XHJcbmV4cG9ydCAqIGZyb20gJy4vbmctY2hhdC9jb3JlL3BhcnRpY2lwYW50LW1ldGFkYXRhJztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvd2luZG93JztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvbG9jYWxpemF0aW9uJztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvY2hhdC1jb250cm9sbGVyJztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvcGFnZWQtaGlzdG9yeS1jaGF0LWFkYXB0ZXInO1xyXG5leHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS90aGVtZS5lbnVtJztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvY2hhdC1vcHRpb24nO1xyXG5leHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS9ncm91cCc7XHJcbmV4cG9ydCAqIGZyb20gJy4vbmctY2hhdC9jb3JlL2NoYXQtcGFydGljaXBhbnQnO1xyXG5leHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS9jaGF0LWdyb3VwLWFkYXB0ZXInO1xyXG5leHBvcnQgKiBmcm9tICcuL25nLWNoYXQvY29yZS9jaGF0LXBhcnRpY2lwYW50LXR5cGUuZW51bSc7XHJcbmV4cG9ydCAqIGZyb20gJy4vbmctY2hhdC9jb3JlL21lc3NhZ2UtdHlwZS5lbnVtJztcclxuZXhwb3J0ICogZnJvbSAnLi9uZy1jaGF0L2NvcmUvZmlsZS11cGxvYWQtYWRhcHRlcic7XHJcblxyXG5leHBvcnQgeyBOZ0NoYXRNb2R1bGUgfSBmcm9tICcuL25nLWNoYXQvbmctY2hhdC5tb2R1bGUnO1xyXG4iXX0=

@@ -1,0 +1,11 @@
+import { PipeTransform } from '@angular/core';
+import { IChatParticipant } from "../core/chat-participant";
+import { Message } from "../core/message";
+import * as ɵngcc0 from '@angular/core';
+export declare class GroupMessageDisplayNamePipe implements PipeTransform {
+    transform(participant: IChatParticipant, message: Message): string;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<GroupMessageDisplayNamePipe, never>;
+    static ɵpipe: ɵngcc0.ɵɵPipeDefWithMeta<GroupMessageDisplayNamePipe, "groupMessageDisplayName">;
+}
+
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ3JvdXAtbWVzc2FnZS1kaXNwbGF5LW5hbWUucGlwZS5kLnRzIiwic291cmNlcyI6WyJncm91cC1tZXNzYWdlLWRpc3BsYXktbmFtZS5waXBlLmQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBOztBQUNBO0FBQ0E7OztBQUNBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgUGlwZVRyYW5zZm9ybSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5pbXBvcnQgeyBJQ2hhdFBhcnRpY2lwYW50IH0gZnJvbSBcIi4uL2NvcmUvY2hhdC1wYXJ0aWNpcGFudFwiO1xyXG5pbXBvcnQgeyBNZXNzYWdlIH0gZnJvbSBcIi4uL2NvcmUvbWVzc2FnZVwiO1xyXG5leHBvcnQgZGVjbGFyZSBjbGFzcyBHcm91cE1lc3NhZ2VEaXNwbGF5TmFtZVBpcGUgaW1wbGVtZW50cyBQaXBlVHJhbnNmb3JtIHtcclxuICAgIHRyYW5zZm9ybShwYXJ0aWNpcGFudDogSUNoYXRQYXJ0aWNpcGFudCwgbWVzc2FnZTogTWVzc2FnZSk6IHN0cmluZztcclxufVxyXG4iXX0=

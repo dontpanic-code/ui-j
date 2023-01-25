@@ -1,0 +1,40 @@
+{
+  "name": "ng-chat",
+  "version": "3.1.0",
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/core": "*",
+    "@angular/forms": "*",
+    "rxjs": "*"
+  },
+  "description": "A simple facebook/linkedin lookalike chat module for Angular applications.",
+  "author": "Rafael Carvalho",
+  "license": "MIT",
+  "homepage": "https://github.com/rpaschoal/ng-chat",
+  "bugs": {
+    "url": "https://github.com/rpaschoal/ng-chat/issues"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "main": "bundles/ng-chat.umd.js",
+  "module_ivy_ngcc": "__ivy_ngcc__/fesm2015/ng-chat.js",
+  "module": "fesm2015/ng-chat.js",
+  "es2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ng-chat.js",
+  "es2015": "fesm2015/ng-chat.js",
+  "esm2015": "esm2015/ng-chat.js",
+  "fesm2015_ivy_ngcc": "__ivy_ngcc__/fesm2015/ng-chat.js",
+  "fesm2015": "fesm2015/ng-chat.js",
+  "typings": "ng-chat.d.ts",
+  "metadata": "ng-chat.metadata.json",
+  "sideEffects": false,
+  "__processed_by_ivy_ngcc__": {
+    "es2015": "9.1.1",
+    "fesm2015": "9.1.1",
+    "module": "9.1.1",
+    "typings": "9.1.1"
+  },
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by NGCC. This is not allowed.\\nPlease delete and rebuild the package, without compiling with NGCC, before attempting to publish.\\nNote that NGCC may have been run by importing this package into another project that is being built with Ivy enabled.\\n')\" && exit 1"
+  }
+}
